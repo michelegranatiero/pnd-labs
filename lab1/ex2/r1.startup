@@ -6,3 +6,24 @@ apt install -f udhcpd
 
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
+#---------------------------------
+
+cat > /etc/udhcpd.conf << "EOF"
+
+start	192.168.100.25
+end	192.168.100.29
+
+interface	eth0
+
+max_leases	5
+
+opt		dns		8.8.8.8
+option 	subnet		255.255.255.248
+opt		router		192.168.100.30
+option 	domain 	local
+option		lease		864000			#10 days of seconds
+
+EOF
+
+udhcpd -f /etc/udhcpd.conf
+

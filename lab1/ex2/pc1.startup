@@ -3,10 +3,13 @@ umount /etc/resolv.conf
 
 #---------------
 
-#cat >> /etc/network/interfaces.d/eth0 <<"EOF"
-#auto eth0
-#allow-hotplug eth0
-#iface eth0 inet dhcp
-#EOF
+cat >> /etc/network/interfaces.d/eth0 <<"EOF"
+auto eth0
+allow-hotplug eth0
+iface eth0 inet dhcp
+EOF
 
-#ifup eth0
+# sleep 2
+
+# ifup eth0
+

@@ -1,0 +1,17 @@
+#-------creato
+
+
+# as internal gateway: (lan1)
+ip addr add 172.16.1.1/24 dev eth1
+
+# as external (internal lan with r2)
+ip addr add 172.16.0.1/24 dev eth0
+
+# add default gateway:
+ip route add default via 172.16.0.254
+
+# add lan2 route:
+ip route add 172.16.2.0/24 via 172.16.0.2
+
+# dns:
+echo "nameserver 8.8.8.8" > /etc/resolv.conf

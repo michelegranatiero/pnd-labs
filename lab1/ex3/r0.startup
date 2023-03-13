@@ -1,2 +1,14 @@
 iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
 
+#-------------------------
+
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+
+# as default gateway in internal lan (with r1 and r2):
+ip addr add 172.16.0.254/24 dev eth0
+
+# add lan1 via r1:
+ip route add 172.16.1.0/24 via 172.16.0.1
+
+# add lan2 via r2:
+ip route add 172.16.2.0/24 via 172.16.0.2
