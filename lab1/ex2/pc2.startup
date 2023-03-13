@@ -1,6 +1,7 @@
 ip addr flush eth0
 umount /etc/resolv.conf
 
-#---------
+#--------------
 
+#sleep 10
 #dhclient eth0
