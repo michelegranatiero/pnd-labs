@@ -11,6 +11,7 @@ xterm*Foreground:				DarkBlue
 
 ! Enable copy/paste hotkeyes (mouse highlight = copy ,  shift+Insert = paste)
 XTerm*selectToClipboard: true
+
 ! ## Select text ##
 XTerm*highlightSelection: true
 ! Remove trailing spaces
@@ -23,4 +24,3 @@ XTerm*vt100.translations: #override \
               Ctrl <Key>0: set-vt-font(d) \n\
               Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
               Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
-
