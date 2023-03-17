@@ -2,3 +2,27 @@ ip addr add 100.64.10.2/16 dev eth0
 ip addr add 192.168.2.1/24 dev eth1
 
 dpkg -i /shared/*.deb
+
+#--------------------------
+
+
+### prepare to receive secret key
+# nc -l -p 9000 > secret.key.enc
+
+### decript secret key
+# openssl enc -aes-128-cbc -d -a -in secret.key.enc -out secret.key
+
+###crea config file
+ cat > r2.conf  << "EOF"
+remote 100.64.10.1
+port 1194
+proto udp
+dev tun
+secret secret.key
+cipher AES-256-CBC
+ifconfig 10.10.10.2 10.10.10.1
+route 192.168.1.0 255.255.255.0 10.10.10.1
+EOF
+
+### Attiva config
+# openvpn --config r2.conf
