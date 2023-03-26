@@ -4,7 +4,9 @@ ip addr add 192.168.1.1/24 dev eth1
 dpkg -i /shared/*.deb
 
 
-#--------------------
+#-----------------------
+
+##static##
 
 #openvpn --genkey --secret secret.key
 
@@ -14,7 +16,7 @@ dpkg -i /shared/*.deb
 ### send secret key
 # nc 100.64.10.2 9000 < secret.key.enc
 
-###crea config file
+###crea config file (as server)
 cat > r1.conf  << "EOF"
 port 1194
 proto udp
