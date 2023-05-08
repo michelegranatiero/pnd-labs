@@ -1,1 +1,10 @@
+cat > /etc/network/interfaces.d/eth0 << "EOF"
+auto eth0
+	iface eth0 inet6 static
+	address 2001:db8:cafe:1::101
+	netmask 64
+	gateway 2001:db8:cafe:1::1
+	dns-nameservers 1.1.1.1 8.8.8.8
+EOF
 
+ifup eth0

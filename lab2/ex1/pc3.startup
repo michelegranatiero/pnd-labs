@@ -1,1 +1,2 @@
-
+ifconfig eth0 add 2001:db8:cafe:2::103/64
+route -A inet6 add default gw 2001:db8:cafe:2::1
