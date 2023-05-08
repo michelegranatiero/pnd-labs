@@ -1,4 +1,26 @@
-XTerm*faceName: Ubuntu Mono:pixelsize=20
+! ## Set font and fontsize ##
+XTerm*faceName: Ubuntu Mono
+XTerm*faceSize: 13
+
+! ## Set xterm window size ##
+XTerm*VT100.geometry: 60x18
+
 Xterm*dynamicColors: true
-xterm*Background:               NavajoWhite1
-xterm*Foreground:               DarkBlue
+xterm*Background:				NavajoWhite1
+xterm*Foreground:				DarkBlue
+
+! Enable copy/paste hotkeyes (mouse highlight = copy ,  shift+Insert = paste)
+XTerm*selectToClipboard: true
+
+! ## Select text ##
+XTerm*highlightSelection: true
+! Remove trailing spaces
+XTerm*trimSelection: true
+
+! ## Keybindings ##
+XTerm*vt100.translations: #override \
+              Ctrl <Key>-: smaller-vt-font() \n\
+              Ctrl <Key>+: larger-vt-font() \n\
+              Ctrl <Key>0: set-vt-font(d) \n\
+              Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+              Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
